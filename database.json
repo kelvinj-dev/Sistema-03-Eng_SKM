@@ -1,59 +1,245 @@
 {
   "projectInfo": {
     "title": "Otimização de Contexto em Engenharia",
+    "version": "0.32",
     "authors": ["Kelvin J Rocha", "Gemini Pro"]
   },
   "siteMap": [
-    { "name": "Início", "status": "ativo" },
-    { "name": "Fluxo de Trabalho", "status": "ativo" },
-    { "name": "Procedimentos Padronizados (POPs / SOPs)", "status": "em elaboração" },
-    { "name": "Área do Administrador", "status": "em elaboração" }
+    {
+      "name": "Início",
+      "status": "ativo",
+      "examplePrompts": [
+        "Resuma o escopo do projeto de Otimização de Contexto em Engenharia em um parágrafo executivo para novos integrantes.",
+        "Liste os objetivos principais de redução de tokens e prevenção de alucinações deste painel.",
+        "Gere um guia rápido de navegação relacionando os módulos ativos do sistema às normas de engenharia vigentes."
+      ]
+    },
+    {
+      "name": "Fluxo de Trabalho",
+      "status": "ativo",
+      "examplePrompts": [
+        "Execute o pipeline completo de 5 etapas sobre o memorial descritivo anexo, exibindo o status de cada fase.",
+        "Identifique gargalos de consumo de tokens entre a etapa de Compressão Semântica e a Verificação Master Database.",
+        "Valide se o documento atual cumpriu os critérios da Auditoria Temp Zero antes de liberar a Montagem Final."
+      ]
+    },
+    {
+      "name": "Procedimentos Padronizados (POPs / SOPs)",
+      "status": "em elaboração",
+      "examplePrompts": [
+        "Estruture um POP padronizado em Markdown para calibração de malhas de controle segundo a norma IEC 61131-3.",
+        "Extraia os requisitos de segurança da NR-12 deste manual e converta-os em um checklist operacional sequencial.",
+        "Revise este SOP de manutenção preventiva removendo ambiguidades e aplicando terminologia estrita da ISO/IEC 81346."
+      ]
+    },
+    {
+      "name": "Área do Administrador",
+      "status": "em elaboração",
+      "examplePrompts": [
+        "Audite o arquivo database.json verificando a integridade das chaves, referências normativas e status de validação.",
+        "Gere um log de atualização de versão comparando o Registro Mestre de Fontes v0.4 com a estrutura atual do sistema.",
+        "Defina permissões e travas de governança na Dimensão 4 (System of Systems) para aprovação de novos nós na base."
+      ]
+    }
   ],
   "outsourcingStrategies": [
     {
       "title": "Terceirização de OCR (PDFs e Imagens)",
-      "description": "Para evitar o consumo excessivo da janela de contexto da IA com descrições de layout e extrações imperfeitas, a tarefa bruta de reconhecimento óptico é completamente delegada a ferramentas externas de OCR antes do envio ao modelo. A IA recebe apenas os dados limpos."
+      "description": "Para evitar o consumo excessivo da janela de contexto da IA com descrições de layout e extrações imperfeitas, a tarefa bruta de reconhecimento óptico é completamente delegada a ferramentas externas de OCR antes do envio ao modelo. A IA recebe apenas os dados limpos.",
+      "examplePrompts": [
+        "Receba este texto bruto extraído via OCR externo de um diagrama unifilar e corrija apenas artefatos de reconhecimento em tags ISO/IEC 81346.",
+        "Organize os dados tabulares provenientes do OCR deste datasheet de transdutor em formato CSV limpo, descartando cabeçalhos e rodapés repetidos.",
+        "Sinalize caracteres corrompidos ou unidades físicas ilegíveis no texto pós-OCR antes de iniciar o dimensionamento de contexto."
+      ]
     },
     {
       "title": "Geração Externa de Documentos (Layout/PDF)",
-      "description": "O modelo foca unicamente na geração e revisão de textos e lógicas usando marcação leve (Markdown). A formatação final do documento é terceirizada usando processos manuais via markdowntopdf.com e fluxos automatizados via APITemplate.io/pdf-tools."
+      "description": "O modelo foca unicamente na geração e revisão de textos e lógicas usando marcação leve (Markdown). A formatação final do documento é terceirizada usando processos manuais via markdowntopdf.com e fluxos automatizados via APITemplate.io/pdf-tools.",
+      "examplePrompts": [
+        "Formate todo o relatório de auditoria técnica estritamente em Markdown compatível com conversão direta no markdowntopdf.com.",
+        "Estruture os dados de saída deste laudo em um payload JSON mapeado para os campos dinâmicos do APITemplate.io.",
+        "Gere apenas a estrutura lógica de títulos (H1-H3) e tabelas técnicas em Markdown puro, omitindo qualquer código de estilo visual ou CSS."
+      ]
     }
   ],
   "workflowSteps": [
-    { "title": "1. Dimensionamento de Contexto", "description": "Fragmentação da documentação em módulos lógicos." },
-    { "title": "2. Compressão Semântica", "description": "Remoção de linguagem passiva e adjetivos via IA, focando em terminologia técnica." },
-    { "title": "3. Verificação Master Database", "description": "Cruzamento das saídas comprimidas com as normas de engenharia vigentes." },
-    { "title": "4. Auditoria Temp Zero", "description": "Sessão limpa (Temperatura 0) operando como auditora restrita contra alucinações e vazamentos." },
-    { "title": "5. Montagem Final", "description": "Integração via prompt de baixo custo focado apenas na coesão textual." }
+    {
+      "title": "1. Dimensionamento de Contexto",
+      "description": "Fragmentação da documentação em módulos lógicos.",
+      "examplePrompts": [
+        "Divida este manual técnico em módulos lógicos independentes (Elétrica, Automação, Segurança NR-12) limitados a 4.000 tokens por bloco.",
+        "Mapeie as dependências cruzadas entre as seções deste projeto para que a fragmentação não omita premissas de segurança.",
+        "Classifique os trechos deste documento pelos aspectos de Função (==), Produto (-) e Localização (+) da ISO/IEC 81346 antes do processamento."
+      ]
+    },
+    {
+      "title": "2. Compressão Semântica",
+      "description": "Remoção de linguagem passiva e adjetivos via IA, focando em terminologia técnica.",
+      "examplePrompts": [
+        "Reescreva o texto técnico abaixo removendo voz passiva, adjetivos subjetivos e redundâncias, preservando 100% dos valores numéricos e normas.",
+        "Comprima este descritivo operacional em proposições técnicas diretas, reduzindo a contagem de tokens em pelo menos 40% sem perda semântica.",
+        "Converta os parágrafos explicativos deste relatório de falhas em uma lista enxuta de causa, efeito e parâmetro técnico afetado."
+      ]
+    },
+    {
+      "title": "3. Verificação Master Database",
+      "description": "Cruzamento das saídas comprimidas com as normas de engenharia vigentes.",
+      "examplePrompts": [
+        "Cruze as especificações comprimidas abaixo com os protocolos de validação do Registro Mestre de Fontes (SYS-01 a ANLG-01) e aponte divergências.",
+        "Verifique se os parâmetros de proteção descritos neste bloco atendem integralmente às exigências das normas NR-12 e IEC 61131-3.",
+        "Gere uma matriz de conformidade comparando os dados do projeto com as fontes primárias autoritárias da Master Database."
+      ]
+    },
+    {
+      "title": "4. Auditoria Temp Zero",
+      "description": "Sessão limpa (Temperatura 0) operando como auditora restrita contra alucinações e vazamentos.",
+      "examplePrompts": [
+        "Operando em Temperatura 0 e restrito exclusivamente ao contexto fornecido, aponte qualquer inferência não suportada pelos dados originais.",
+        "Compare o texto comprimido com a fonte bruta e liste qualquer alteração de valores, unidades de engenharia ou omissão de cláusulas críticas.",
+        "Verifique a existência de vazamento de contexto (token bleed) ou termos alucinados nesta especificação técnica."
+      ]
+    },
+    {
+      "title": "5. Montagem Final",
+      "description": "Integração via prompt de baixo custo focado apenas na coesão textual.",
+      "examplePrompts": [
+        "Una os módulos auditados abaixo aplicando apenas conectivos técnicos mínimos para garantir fluidez de leitura, sem alterar nenhum dado validado.",
+        "Consolide as seções verificadas em um documento mestre único em Markdown, padronizando a numeração de tópicos e referências cruzadas.",
+        "Realize uma revisão final de baixo custo de tokens focada exclusivamente na coesão entre os blocos de Introdução, Escopo Técnico e Conclusão."
+      ]
+    }
   ],
   "upgradeRoadmap": [
     {
       "phase": "Fase 1: Arquitetura e Redes",
       "topics": "SYS-01, PROT-01, PROT-02",
-      "description": "Implementação de módulos interativos para checagem de Modelagem RDS (ISO/IEC 81346) e ferramentas de análise de determinismo e temporização de frames para redes Profibus, Modbus e OPC UA."
+      "description": "Implementação de módulos interativos para checagem de Modelagem RDS (ISO/IEC 81346) e ferramentas de análise de determinismo e temporização de frames para redes Profibus, Modbus e OPC UA.",
+      "examplePrompts": [
+        "Valide a nomenclatura de ativos abaixo segundo a ISO/IEC 81346-1:2022, verificando a aplicação correta dos prefixos de Função (==), Produto (-) e Localização (+).",
+        "Calcule o tempo de ciclo determinístico e o overhead de frames para esta topologia Profibus-DP / Modbus RS-485 e aponte riscos de latência.",
+        "Audite a estrutura de Nodes OPC UA abaixo garantindo a integridade e a segurança do transporte de dados do nível de campo até o sistema MES/ERP."
+      ]
     },
     {
       "phase": "Fase 2: Ecossistemas de Controle e Marítima",
       "topics": "AUTO-01, MAR-01, CTRL-01",
-      "description": "Criação de diretórios de validação lógica IEC 61131-3 (Altus/Siemens), equações termodinâmicas (MVEM) para motores, e integração de POPs para auditar sistemas de governo (Lemes) contra normas IMO SOLAS."
+      "description": "Criação de diretórios de validação lógica IEC 61131-3 (Altus/Siemens), equações termodinâmicas (MVEM) para motores, e integração de POPs para auditar sistemas de governo (Lemes) contra normas IMO SOLAS.",
+      "examplePrompts": [
+        "Analise esta rotina em Texto Estruturado (IEC 61131-3) para PLC Altus Nexto / Siemens e identifique riscos de estouro de Scan Time.",
+        "Aplique o Modelo de Motor de Valor Médio (MVEM) para validar o comportamento termodinâmico durante transientes de injeção neste motor marítimo.",
+        "Audite o diagrama de controle do sistema de governo (Lemes) abaixo contra os requisitos de redundância da convenção IMO SOLAS Capítulo II-1."
+      ]
     },
     {
       "phase": "Fase 3: Instrumentação e Engenharia Reversa",
       "topics": "ENG-01, INST-01, ANLG-01",
-      "description": "Formulação de checklists em Markdown para mitigação de histerese em transdutores, análise de circuitos de instrumentação analógica (TI Op Amps) e documentação base para simulação de scripts Node.js após sniffing de redes CAN."
+      "description": "Formulação de checklists em Markdown para mitigação de histerese em transdutores, análise de circuitos de instrumentação analógica (TI Op Amps) e documentação base para simulação de scripts Node.js após sniffing de redes CAN.",
+      "examplePrompts": [
+        "Elabore um checklist em Markdown para calibração física, análise de linearidade e mitigação de histerese em transdutores de posição Novotechnik/WIKA.",
+        "Calcule a resposta em frequência, o ganho em malha fechada e a estabilidade deste circuito de condicionamento analógico baseado em TI Op Amps.",
+        "Estruture um script em Node.js utilizando can-utils e node-opcua para decodificar frames J1939 capturados via SavvyCAN e publicá-los em um servidor OPC UA."
+      ]
     }
   ],
   "trainingResources": [
-    { "title": "Análise de Dados: Claude vs ChatGPT", "focus": "Demonstra o manuseio de janelas de contexto massivas (até 200k tokens), essencial para processar manuais extensos de engenharia sem perder cláusulas iniciais de conformidade." },
-    { "title": "Comparando Modelos de IA Gratuitos", "focus": "Avalia a eficiência de tokens e retenção estrita de lógica em diferentes plataformas, ajudando a escolher o modelo certo para tarefas pesadas de auditoria." },
-    { "title": "Novos Recursos de Work & Workspace do ChatGPT", "focus": "Mostra como isolar ambientes para travar restrições rígidas de engenharia e regras de conformidade através de múltiplas sessões de prompts sem vazamento de tokens." },
-    { "title": "Usando o Canvas para Edição de Documentos", "focus": "Ensina a revisão colaborativa e direcionada. Permite atualizar parágrafos técnicos específicos sem regenerar o documento inteiro e desperdiçar tokens." },
-    { "title": "Claude e ChatGPT para Extração de Dados Complexos", "focus": "Focado em extrair dados estruturados de textos densos, vital ao isolar parâmetros de segurança de especificações não estruturadas." },
-    { "title": "IA para Programação: Retenção de Lógica e Sintaxe", "focus": "Embora foque em Python, a lição central é como os modelos mantêm lógica estrita em contextos profundos, aplicável a fórmulas complexas de engenharia." },
-    { "title": "Capacidades do Plano Gratuito do Grok", "focus": "Explora modelos alternativos para fluxos de re-checagem secundários, permitindo que uma IA com contexto limpo audite documentos sem atingir limites de uso do modelo principal." },
-    { "title": "Claude e ChatGPT no Excel", "focus": "Estruturação de checklists tabulares. Forçar a IA a formatar saídas em tabelas comprime naturalmente o texto, economizando tokens significativos." },
-    { "title": "Do Zero ao Avançado em Inteligência Artificial", "focus": "Estrutura de base para escrever prompts determinísticos e eficientes em tokens, que não deixam espaço para interpretações subjetivas." },
-    { "title": "Fundamentos da Engenharia de Prompt", "focus": "Técnicas essenciais para estruturar consultas para que a IA priorize a verificação de conformidade em vez de geração de linguagem criativa." },
-    { "title": "Curso Básico de ChatGPT - Inteligência Artificial", "focus": "Conceitos fundamentais sobre como estruturar prompts de IA eficientemente, o primeiro passo para dominar o gerenciamento de tokens em tarefas complexas." }
+    {
+      "title": "Análise de Dados: Claude vs ChatGPT",
+      "focus": "Demonstra o manuseio de janelas de contexto massivas (até 200k tokens), essencial para processar manuais extensos de engenharia sem perder cláusulas iniciais de conformidade.",
+      "examplePrompts": [
+        "Carregue este manual técnico completo e liste todas as referências de conformidade citadas nas primeiras 20 páginas que impactam o capítulo final.",
+        "Verifique se alguma restrição de segurança declarada no início desta janela de contexto de 200k tokens foi violada nos anexos finais.",
+        "Mapeie todas as ocorrências da tag de ativo ==A1-B2 ao longo deste documento extenso sem omitir seções intermediárias."
+      ]
+    },
+    {
+      "title": "Comparando Modelos de IA Gratuitos",
+      "focus": "Avalia a eficiência de tokens e retenção estrita de lógica em diferentes plataformas, ajudando a escolher o modelo certo para tarefas pesadas de auditoria.",
+      "examplePrompts": [
+        "Resolva este teste de retenção lógica de 5 etapas sobre intertravamento elétrico utilizando o menor número possível de tokens de saída.",
+        "Avalie a consistência lógica das duas respostas abaixo para a mesma auditoria técnica e aponte qual modelo manteve estrita aderência às regras.",
+        "Execute esta verificação de conformidade em modo enxuto para comparar o consumo de tokens e a precisão técnica entre diferentes LLMs."
+      ]
+    },
+    {
+      "title": "Novos Recursos de Work & Workspace do ChatGPT",
+      "focus": "Mostra como isolar ambientes para travar restrições rígidas de engenharia e regras de conformidade através de múltiplas sessões de prompts sem vazamento de tokens.",
+      "examplePrompts": [
+        "Defina como instrução fixa deste Workspace: responder exclusivamente em Markdown técnico, seguir a ISO/IEC 81346 e proibir suposições fora dos arquivos anexos.",
+        "Verifique se as restrições de engenharia travadas neste projeto permanecem ativas nesta nova sessão antes de processar o lote de documentos.",
+        "Isole os parâmetros da norma NR-12 como regra global deste ambiente de trabalho para todas as auditorias subsequentes."
+      ]
+    },
+    {
+      "title": "Usando o Canvas para Edição de Documentos",
+      "focus": "Ensina a revisão colaborativa e direcionada. Permite atualizar parágrafos técnicos específicos sem regenerar o documento inteiro e desperdiçar tokens.",
+      "examplePrompts": [
+        "Reescreva apenas o parágrafo 3.2 sobre temporização Modbus TCP para corrigir o baud rate, mantendo o restante do documento inalterado.",
+        "Atualize exclusivamente a equação termodinâmica da seção 4 sem regenerar os blocos adjacentes já auditados.",
+        "Insira uma nota de conformidade IMO SOLAS diretamente no item 2.1 preservando a formatação e os tokens do texto ao redor."
+      ]
+    },
+    {
+      "title": "Claude e ChatGPT para Extração de Dados Complexos",
+      "focus": "Focado em extrair dados estruturados de textos densos, vital ao isolar parâmetros de segurança de especificações não estruturadas.",
+      "examplePrompts": [
+        "Extraia deste memorial descritivo não estruturado todos os limites de pressão, temperatura e tensão de isolamento, formatando-os em JSON.",
+        "Isole todas as exigências de segurança referentes à NR-11 e NR-12 presentes neste texto denso e liste-as com suas respectivas páginas de origem.",
+        "Identifique e tabule todos os parâmetros de calibração de sensores WIKA e SICK dispersos neste relatório de comissionamento."
+      ]
+    },
+    {
+      "title": "IA para Programação: Retenção de Lógica e Sintaxe",
+      "focus": "Embora foque em Python, a lição central é como os modelos mantêm lógica estrita em contextos profundos, aplicável a fórmulas complexas de engenharia.",
+      "examplePrompts": [
+        "Verifique a integridade sintática e matemática das fórmulas de controle PID com anti-windup ao longo de todo este documento técnico.",
+        "Audite esta lógica booleana de intertravamento garantindo que nenhuma variável tenha seu estado invertido nas seções finais do texto.",
+        "Valide se as equações do Observador de Estado Estendido (ESO) mantêm as mesmas unidades e convenções de sinais do início ao fim do arquivo."
+      ]
+    },
+    {
+      "title": "Capacidades do Plano Gratuito do Grok",
+      "focus": "Explora modelos alternativos para fluxos de re-checagem secundários, permitindo que uma IA com contexto limpo audite documentos sem atingir limites de uso do modelo principal.",
+      "examplePrompts": [
+        "Atue como auditor secundário independente com contexto limpo e verifique se o resumo técnico abaixo contém contradições lógicas.",
+        "Realize uma checagem cruzada rápida desta tabela de registradores Modbus gerada por outro modelo e aponte possíveis erros de endereçamento.",
+        "Valide de forma binária (Conforme / Não Conforme) se o texto revisado abaixo respeita as 5 restrições técnicas listadas a seguir."
+      ]
+    },
+    {
+      "title": "Claude e ChatGPT no Excel",
+      "focus": "Estruturação de checklists tabulares. Forçar a IA a formatar saídas em tabelas comprime naturalmente o texto, economizando tokens significativos.",
+      "examplePrompts": [
+        "Converta este relatório de inspeção em uma tabela Markdown compacta contendo apenas: ID, Norma, Requisito, Status e Ação Corretiva.",
+        "Gere um checklist tabular de comissionamento de redes Profinet otimizado para importação direta no Excel via separador de ponto e vírgula.",
+        "Comprima as 10 páginas de observações de auditoria em uma matriz tabular resumida para economizar tokens de janela de contexto."
+      ]
+    },
+    {
+      "title": "Do Zero ao Avançado em Inteligência Artificial",
+      "focus": "Estrutura de base para escrever prompts determinísticos e eficientes em tokens, que não deixam espaço para interpretações subjetivas.",
+      "examplePrompts": [
+        "Analise a especificação abaixo de forma estritamente determinística, respondendo apenas com dados explícitos no texto e proibindo inferências.",
+        "Estruture a saída em formato chave-valor técnico, eliminando introduções conversacionais, conclusões genéricas e adjetivos.",
+        "Execute a validação lógica seguindo exatamente a sequência de passos numerados definida neste comando, sem pular etapas."
+      ]
+    },
+    {
+      "title": "Fundamentos da Engenharia de Prompt",
+      "focus": "Técnicas essenciais para estruturar consultas para que a IA priorize a verificação de conformidade em vez de geração de linguagem criativa.",
+      "examplePrompts": [
+        "Priorize a verificação matemática e normativa sobre a fluidez estilística ao revisar este memorial de cálculo de instrumentação.",
+        "Atue como engenheiro auditor de conformidade: aponte exclusivamente falhas técnicas, omissões normativas e inconsistências dimensionais.",
+        "Restrinja sua análise às normas listadas no Registro Mestre de Fontes, sinalizando com [DADO AUSENTE] qualquer parâmetro não informado."
+      ]
+    },
+    {
+      "title": "Curso Básico de ChatGPT - Inteligência Artificial",
+      "focus": "Conceitos fundamentais sobre como estruturar prompts de IA eficientemente, o primeiro passo para dominar o gerenciamento de tokens em tarefas complexas.",
+      "examplePrompts": [
+        "Defina o contexto, a persona técnica de engenheiro de automação, a tarefa de revisão e o formato de saída antes de processar o texto a seguir.",
+        "Reestruture esta solicitação vaga em um prompt claro, objetivo e com baixo consumo de tokens para análise de documentação técnica.",
+        "Estabeleça limites claros de escopo e tamanho de resposta para evitar geração prolixa durante a sumarização deste manual."
+      ]
+    }
   ]
 }
