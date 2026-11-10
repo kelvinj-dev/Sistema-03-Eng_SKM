@@ -1,0 +1,13 @@
+0v35 - chnge JSON to have example of prompts 
+
+v34 - correcting index ti syiw example of prompts
+
+
+- 0v35 - correct index for showing the prompt examples, like an expandable version inside each card.
+- Created a button for automatic clipboard copy and paste. That's change 3.
+- Alterations to style.css to meet the new classes inside index.
+
+
+# Issues and problems 
+
+example of prompts in the menu buttons, extrapolating ontology of the page 
