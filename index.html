@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Engineering Workflow - Piloto</title>
-    <!-- Importando o arquivo CSS externo -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,7 +23,7 @@
     <h2>Workflow de Revisão via IA</h2>
     <div class="grid-layout" id="workflow-container"></div>
 
-    <h2>Planejamento de Upgrade (Base: Unicersal-Standarda)</h2>
+    <h2>Planejamento de Upgrade (Base: Registro_Mestre_Fontes_v0.4.csv)</h2>
     <div class="grid-layout" id="upgrade-container"></div>
 
     <h2>Recursos de Treinamento em Vídeo</h2>
@@ -32,12 +31,11 @@
     <p class="disclaimer">As visualizações de vídeos do YouTube serão armazenadas em seu Histórico do YouTube, e seus dados serão armazenados e usados pelo YouTube de acordo com seus Termos de Serviço.</p>
 
     <footer>
-        <p>Projeto Piloto: <strong>AI Collaboration</strong></p>
+        <p>Projeto Piloto: <strong>AI-Human Collaboration Framework</strong></p>
         <p>Desenvolvido e mantido por: <span id="authors-list"></span></p>
     </footer>
 </div>
 
-<!-- Lógica de importação do JSON -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         fetch('database.json')
@@ -48,7 +46,8 @@
                 return response.json();
             })
             .then(database => {
-                document.getElementById('page-title').innerText = database.projectInfo.title;
+                const versionTag = database.projectInfo.version ? ` (v${database.projectInfo.version})` : '';
+                document.getElementById('page-title').innerText = database.projectInfo.title + versionTag;
                 document.getElementById('authors-list').innerText = database.projectInfo.authors.join(' & ');
 
                 const renderGrid = (containerId, dataArray, htmlTemplate) => {
@@ -58,16 +57,36 @@
                     });
                 };
 
+                const renderPrompts = (prompts) => {
+                    if (!prompts || prompts.length === 0) return '';
+                    const listItems = prompts.map(p => `<li>"${p}"</li>`).join('');
+                    return `
+                        <details class="prompt-drawer">
+                            <summary>Exemplos de Prompts (${prompts.length})</summary>
+                            <ul class="prompt-list">${listItems}</ul>
+                        </details>
+                    `;
+                };
+
                 const sitemapContainer = document.getElementById('sitemap-container');
                 database.siteMap.forEach(item => {
                     const badgeClass = item.status === 'ativo' ? 'badge-active' : 'badge-wip';
-                    sitemapContainer.innerHTML += `<div class="sitemap-item">${item.name} <span class="badge ${badgeClass}">${item.status === 'ativo' ? 'Online' : 'Em elaboração'}</span></div>`;
+                    const badgeLabel = item.status === 'ativo' ? 'Online' : item.status;
+                    sitemapContainer.innerHTML += `
+                        <div class="sitemap-item">
+                            <div>
+                                ${item.name} <span class="badge ${badgeClass}">${badgeLabel}</span>
+                            </div>
+                            ${renderPrompts(item.examplePrompts)}
+                        </div>
+                    `;
                 });
 
                 renderGrid('outsourcing-container', database.outsourcingStrategies, (item) => `
                     <div class="card">
                         <h3>${item.title}</h3>
                         <p>${item.description}</p>
+                        ${renderPrompts(item.examplePrompts)}
                     </div>
                 `);
 
@@ -75,6 +94,7 @@
                     <div class="card">
                         <h3>${item.title}</h3>
                         <p>${item.description}</p>
+                        ${renderPrompts(item.examplePrompts)}
                     </div>
                 `);
 
@@ -83,6 +103,7 @@
                         <h3>${item.phase}</h3>
                         <div class="card-meta">Referência: ${item.topics}</div>
                         <p>${item.description}</p>
+                        ${renderPrompts(item.examplePrompts)}
                     </div>
                 `);
 
@@ -90,6 +111,7 @@
                     <div class="card">
                         <h3>${item.title}</h3>
                         <p><strong>Foco na Engenharia:</strong> ${item.focus}</p>
+                        ${renderPrompts(item.examplePrompts)}
                     </div>
                 `);
             })
